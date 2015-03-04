@@ -17,19 +17,28 @@ public class DrawDemo
     /**
      * Prepare the drawing demo. Create a fresh canvas and make it visible.
      */
-    public DrawDemo()
+    public DrawDemo(int x, int y, int lados)
     {
         myCanvas = new Canvas("Drawing Demo", 500, 400);  
         myCanvas.erase();
-        random = new Random();
+        Pen pen = new Pen( x, y, myCanvas);
+        pen.setColor(Color.ORANGE);
+        drawDemo(pen,lados);
+    }
+
+    private void drawDemo(Pen pen, int lados){
+        for (int i=0; i<lados; i++) {
+            pen.move(100);
+            pen.turn(360/lados);
+        }
     }
 
     /**
      * Draw a triangle on the screen
      */
-    public void drawTriangle()
+    public void drawTriangle(int x, int y )
     { 
-        Pen pen = new Pen(100, 100, myCanvas);
+        Pen pen = new Pen( x, y, myCanvas);
         pen.setColor(Color.GREEN);
         triangle(pen);
 
@@ -42,9 +51,9 @@ public class DrawDemo
     {
         Pen pen = new Pen(320, 260, myCanvas);
         pen.setColor(Color.BLUE);
-
         square(pen);
     }
+
     /**
      * Draw a pentagon on the screen
      */
