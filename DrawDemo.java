@@ -25,6 +25,17 @@ public class DrawDemo
     }
 
     /**
+     * Draw a triangle on the screen
+     */
+    public void drawTriangle()
+    { 
+        Pen pen = new Pen(320, 260, myCanvas);
+        pen.setColor(Color.GREEN);
+        triangle(pen);
+
+    }
+
+    /**
      * Draw a square on the screen.
      */
     public void drawSquare()
@@ -59,6 +70,14 @@ public class DrawDemo
             pen.turn(90);
         }
     }
+    private void triangle(Pen pen)
+    {
+        for (int i=0; i<3; i++)
+        {
+            pen.move(100);
+            pen.turn(120);
+        }
+    }
 
     /**
      * Draw some random squiggles on the screen, in random colors.
@@ -73,11 +92,11 @@ public class DrawDemo
             int green = random.nextInt(256);
             int blue = random.nextInt(256);
             pen.setColor(new Color(red, green, blue));
-            
+
             pen.randomSquiggle();
         }
     }
-    
+
     /**
      * Clear the screen.
      */
