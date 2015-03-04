@@ -29,7 +29,7 @@ public class DrawDemo
      */
     public void drawTriangle()
     { 
-        Pen pen = new Pen(320, 260, myCanvas);
+        Pen pen = new Pen(100, 100, myCanvas);
         pen.setColor(Color.GREEN);
         triangle(pen);
 
@@ -44,6 +44,15 @@ public class DrawDemo
         pen.setColor(Color.BLUE);
 
         square(pen);
+    }
+    /**
+     * Draw a pentagon on the screen
+     */
+    public void drawPentagon()
+    {
+        Pen pen = new Pen (100,100,myCanvas);
+        pen.setColor(Color.GREEN);
+        pentagon(pen);
     }
 
     /**
@@ -70,12 +79,28 @@ public class DrawDemo
             pen.turn(90);
         }
     }
+
+    /**
+     * Draw a triangle in the pens color at the pens location
+     */
     private void triangle(Pen pen)
     {
         for (int i=0; i<3; i++)
         {
             pen.move(100);
             pen.turn(120);
+        }
+    }
+
+    /**
+     * Draw a pentagon in the pens color at the pens location
+     */
+    private void pentagon(Pen pen)
+    {
+        for(int i=0; i<5; i++)
+        {
+            pen.move(100);
+            pen.turn(72);
         }
     }
 
